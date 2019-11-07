@@ -1,11 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Nav from '../components/nav';
 
 const accessToken = process.env.accessToken;
 
+const getComments = async () => {
+  const res = await fetch(
+    'https://qiita.com/api/v2/items/7c780fc2e98952562fe4/comments',
+    {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    },
+  );
+  return res.json();
+};
+
 function Home() {
-  console.log({ accessToken });
+  const [comments, setComments] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const initialize = async () => {
+    setLoading(true);
+    const comments = await getComments();
+    setComments(comments);
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    initialize();
+  }, []);
   return (
     <div>
       <Head>
@@ -20,6 +44,11 @@ function Home() {
         <p className="description">
           To get started, edit <code>pages/index.js</code> and save to reload.
         </p>
+
+        {loading && <p className="description">Loading...</p>}
+        {comments.map(({ body }) => (
+          <li className="description">{body}</li>
+        ))}
 
         <div className="row">
           <a href="https://nextjs.org/docs" className="card">
