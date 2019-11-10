@@ -22,8 +22,7 @@ function Home() {
 
   const initialize = async () => {
     setLoading(true);
-    const comments = await getComments();
-    setComments(comments);
+    setComments(await getComments());
     setLoading(false);
   };
 
@@ -46,8 +45,10 @@ function Home() {
         </p>
 
         {loading && <p className="description">Loading...</p>}
-        {comments.map(({ body }) => (
-          <li className="description">{body}</li>
+        {comments.map(({ id, body }) => (
+          <li key={id} className="description">
+            {body}
+          </li>
         ))}
 
         <div className="row">
