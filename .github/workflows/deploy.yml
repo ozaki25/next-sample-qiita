@@ -18,6 +18,8 @@ jobs:
       - name: build
         run: |
           yarn build
+　　　　　env:
+          GITHUB_PAGES: true
       - name: export
         run: |
           yarn export
@@ -27,4 +29,3 @@ jobs:
           PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: ./out
-          GITHUB_PAGES: true
