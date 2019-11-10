@@ -16,10 +16,10 @@ jobs:
         run: |
           yarn install
       - name: build
-　　　　　env:
-          GITHUB_PAGES: true
         run: |
           yarn build
+　　　　　env:
+          GITHUB_PAGES: on
       - name: export
         run: |
           yarn export
