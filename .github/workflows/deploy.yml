@@ -24,7 +24,7 @@ jobs:
       - name: export
         run: |
           yarn export
-          # touch out/.nojekyll
+          touch out/.nojekyll
       - name: deploy
         uses: peaceiris/actions-gh-pages@v2.3.1
         env:
