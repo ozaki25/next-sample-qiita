@@ -21,7 +21,9 @@ jobs:
         env:
           GITHUB_PAGES: true
       - name: export
-        run: yarn export
+        run: |
+          yarn export
+          touch out/.nojekyll
         env:
           GITHUB_PAGES: true
       - name: deploy
@@ -30,4 +32,3 @@ jobs:
           PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: ./out
-          GITHUB_PAGES: true
