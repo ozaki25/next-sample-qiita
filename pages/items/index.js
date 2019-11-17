@@ -1,3 +1,4 @@
+import Layout from '../../components/Layout';
 import useQiitaApi from '../../hooks/useQiitaApi';
 
 function Item({ id, title, created_at, url, user: { name } }) {
@@ -13,13 +14,13 @@ function Item({ id, title, created_at, url, user: { name } }) {
 function Items() {
   const { data, loading } = useQiitaApi();
   return (
-    <div>
+    <Layout>
       {loading ? (
         <p>loading...</p>
       ) : (
         data.map(item => <Item key={item.id} {...item} />)
       )}
-    </div>
+    </Layout>
   );
 }
 
