@@ -2,7 +2,7 @@ import { Navbar } from 'react-bootstrap';
 
 function Header() {
   return (
-    <Navbar>
+    <Navbar fluid>
       <Navbar.Header>
         <Navbar.Brand>
           <a href="/">Qiita Sample</a>
