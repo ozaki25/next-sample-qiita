@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "@zeit/next-css": "^1.0.1",
-    "dotenv": "^8.2.0"
+    "dotenv": "^8.2.0",
+    "url-loader": "^2.2.0"
   }
 }
