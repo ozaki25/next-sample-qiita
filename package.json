@@ -9,11 +9,15 @@
     "export": "next export"
   },
   "dependencies": {
+    "bootstrap": "^3.4.1",
     "next": "9.1.2",
     "react": "16.11.0",
+    "react-bootstrap": "^0.33",
     "react-dom": "16.11.0"
   },
   "devDependencies": {
-    "dotenv": "^8.2.0"
+    "@zeit/next-css": "^1.0.1",
+    "dotenv": "^8.2.0",
+    "url-loader": "^2.2.0"
   }
 }

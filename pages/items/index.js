@@ -1,25 +1,26 @@
+import { ListGroup, ListGroupItem, Panel } from 'react-bootstrap';
+import Layout from '../../components/Layout';
 import useQiitaApi from '../../hooks/useQiitaApi';
-
-function Item({ id, title, created_at, url, user: { name } }) {
-  return (
-    <div key={id}>
-      <a href={url}>
-        {title} <small>{created_at}</small>
-      </a>
-    </div>
-  );
-}
 
 function Items() {
   const { data, loading } = useQiitaApi();
   return (
-    <div>
-      {loading ? (
-        <p>loading...</p>
-      ) : (
-        data.map(item => <Item key={item.id} {...item} />)
-      )}
-    </div>
+    <Layout>
+      <Panel>
+        <Panel.Heading>記事一覧</Panel.Heading>
+        {loading ? (
+          <Panel.Body>loading...</Panel.Body>
+        ) : (
+          <ListGroup>
+            {data.map(({ id, title, created_at, url }) => (
+              <ListGroupItem key={id} href={url}>
+                {title} <small>{created_at}</small>
+              </ListGroupItem>
+            ))}
+          </ListGroup>
+        )}
+      </Panel>
+    </Layout>
   );
 }
 
