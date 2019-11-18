@@ -1,21 +1,21 @@
 import { useState, useEffect } from 'react';
 import qiitaApi from '../api/qiita';
 
-function useQiitaApi() {
+function useQiitaComments() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const fetchItems = async () => {
+  const fetchComments = async () => {
     setLoading(true);
-    setData(await qiitaApi.getItems());
+    setData(await qiitaApi.getComments());
     setLoading(false);
   };
 
   useEffect(() => {
-    fetchItems();
+    fetchComments();
   }, []);
 
-  return { data, loading };
+  return { data, loading, refetch: fetchComments };
 }
 
-export default useQiitaApi;
+export default useQiitaComments;

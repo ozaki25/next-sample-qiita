@@ -16,6 +16,19 @@ async function getItems(name = 'ozaki25') {
   }
 }
 
+async function getComments(itemId = '7c780fc2e98952562fe4') {
+  try {
+    const res = await fetch(`${baseUrl}/items/${itemId}/comments`, { headers });
+    const json = await res.json();
+    console.log(json);
+    return json;
+  } catch (e) {
+    console.log({ e });
+    return e;
+  }
+}
+
 export default {
   getItems,
+  getComments,
 };
