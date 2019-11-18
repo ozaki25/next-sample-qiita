@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import qiitaApi from '../api/qiita';
 
-function useQiitaApi() {
+function useQiitaItems() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -15,7 +15,7 @@ function useQiitaApi() {
     fetchItems();
   }, []);
 
-  return { data, loading };
+  return { data, loading, refetch: fetchItems };
 }
 
-export default useQiitaApi;
+export default useQiitaItems;
