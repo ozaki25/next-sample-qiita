@@ -11,7 +11,13 @@ function useQiitaComments() {
     setLoading(false);
   };
 
-  return { data, loading, refetch: fetchComments };
+  const addComment = async comment => {
+    setLoading(true);
+    await qiitaApi.postComment({ comment });
+    setLoading(false);
+  };
+
+  return { data, loading, refetch: fetchComments, add: addComment };
 }
 
 export default useQiitaComments;

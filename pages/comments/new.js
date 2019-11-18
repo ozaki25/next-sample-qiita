@@ -1,4 +1,5 @@
-import useForm from 'react-hook-form/dist/react-hook-form';
+import Router from 'next/router';
+import useForm from 'react-hook-form';
 import {
   Button,
   ControlLabel,
@@ -12,10 +13,16 @@ import Layout from '../../components/Layout';
 import useQiitaComments from '../../hooks/useQiitaComments';
 
 function New() {
+  const { add } = useQiitaComments();
   const { register, handleSubmit, watch, errors } = useForm();
   const validationState = errors.comment ? 'error' : null;
-  const onSubmit = data => {
-    console.log(data);
+  const onSubmit = async data => {
+    try {
+      await add(data.comment);
+      Router.push('/comments');
+    } catch (e) {
+      alert(e.toString());
+    }
   };
   return (
     <Layout>
@@ -29,6 +36,8 @@ function New() {
                 componentClass="textarea"
                 id="comment"
                 name="comment"
+                rows="10"
+                placeholder="Markdownが使えます"
                 inputRef={register({
                   required: '必須項目です',
                   maxLength: {
