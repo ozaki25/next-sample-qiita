@@ -4,6 +4,8 @@ import { Button, Glyphicon, Image, Panel } from 'react-bootstrap';
 import Layout from '../../components/Layout';
 import useQiitaComments from '../../hooks/useQiitaComments';
 
+const basePath = process.env.basePath;
+
 function Comments() {
   const { data, loading, refetch } = useQiitaComments();
 
@@ -16,7 +18,7 @@ function Comments() {
       <Panel>
         <Panel.Heading className="clearfix">
           コメント一覧
-          <Link href="/comments/new">
+          <Link href={`${basePath}/comments/new`}>
             <Button bsSize="xsmall" className="pull-right">
               <Glyphicon glyph="pencil" /> コメントを投稿する
             </Button>

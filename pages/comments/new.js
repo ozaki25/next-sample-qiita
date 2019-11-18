@@ -12,6 +12,8 @@ import {
 import Layout from '../../components/Layout';
 import useQiitaComments from '../../hooks/useQiitaComments';
 
+const basePath = process.env.basePath;
+
 function New() {
   const { add } = useQiitaComments();
   const { register, handleSubmit, watch, errors } = useForm();
@@ -19,7 +21,7 @@ function New() {
   const onSubmit = async data => {
     try {
       await add(data.comment);
-      Router.push('/comments');
+      Router.push(`${basePath}/comments`);
     } catch (e) {
       alert(e.toString());
     }
