@@ -1,24 +1,21 @@
-import {
-  Button,
-  ControlLabel,
-  FormControl,
-  FormGroup,
-  Image,
-  Panel,
-} from 'react-bootstrap';
+import Link from 'next/link';
+import { Button, Image, Panel } from 'react-bootstrap';
 import Layout from '../../components/Layout';
 import useQiitaComments from '../../hooks/useQiitaComments';
 
-function Items() {
+function Comments() {
   const { data, loading } = useQiitaComments();
-  const onSubmit = e => {
-    e.preventDefault();
-  };
-
   return (
     <Layout>
       <Panel>
-        <Panel.Heading>コメント一覧</Panel.Heading>
+        <Panel.Heading className="clearfix">
+          コメント一覧
+          <Link href="/comments/new">
+            <Button bsSize="xsmall" className="pull-right">
+              コメントを投稿する
+            </Button>
+          </Link>
+        </Panel.Heading>
         {loading ? (
           <Panel.Body>loading...</Panel.Body>
         ) : (
@@ -44,18 +41,9 @@ function Items() {
             ),
           )
         )}
-        <Panel.Body>
-          <form onSubmit={onSubmit}>
-            <FormGroup>
-              <ControlLabel>コメントを投稿する</ControlLabel>
-              <FormControl componentClass="textarea" name="comment" />
-            </FormGroup>
-            <Button type="submit">投稿</Button>
-          </form>
-        </Panel.Body>
       </Panel>
     </Layout>
   );
 }
 
-export default Items;
+export default Comments;
