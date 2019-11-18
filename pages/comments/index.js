@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Button, Image, Panel } from 'react-bootstrap';
+import { Button, Glyphicon, Image, Panel } from 'react-bootstrap';
 import Layout from '../../components/Layout';
 import useQiitaComments from '../../hooks/useQiitaComments';
 
@@ -12,7 +12,7 @@ function Comments() {
           コメント一覧
           <Link href="/comments/new">
             <Button bsSize="xsmall" className="pull-right">
-              コメントを投稿する
+              <Glyphicon glyph="pencil" /> コメントを投稿する
             </Button>
           </Link>
         </Panel.Heading>
