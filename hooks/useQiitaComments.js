@@ -11,10 +11,6 @@ function useQiitaComments() {
     setLoading(false);
   };
 
-  useEffect(() => {
-    fetchComments();
-  }, []);
-
   return { data, loading, refetch: fetchComments };
 }
 

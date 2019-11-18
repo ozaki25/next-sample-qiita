@@ -1,10 +1,16 @@
+import { useEffect } from 'react';
 import Link from 'next/link';
 import { Button, Glyphicon, Image, Panel } from 'react-bootstrap';
 import Layout from '../../components/Layout';
 import useQiitaComments from '../../hooks/useQiitaComments';
 
 function Comments() {
-  const { data, loading } = useQiitaComments();
+  const { data, loading, refetch } = useQiitaComments();
+
+  useEffect(() => {
+    refetch();
+  }, []);
+
   return (
     <Layout>
       <Panel>
