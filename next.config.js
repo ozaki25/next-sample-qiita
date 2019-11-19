@@ -25,6 +25,7 @@ module.exports = withCSS({
       api: path.join(__dirname, 'api'),
       components: path.join(__dirname, 'components'),
       hooks: path.join(__dirname, 'hooks'),
+      utils: path.join(__dirname, 'utils'),
     };
     config.module.rules.push({
       test: /\.(eot|woff|woff2|ttf|svg|png|jpg|gif)$/,

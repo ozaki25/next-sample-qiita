@@ -4,6 +4,7 @@ import { Image, Panel } from 'react-bootstrap';
 import Layout from 'components/Layout';
 import IconButton from 'components/IconButton';
 import useQiitaComments from 'hooks/useQiitaComments';
+import dateFormatUtil from 'utils/dateFormat';
 
 const basePath = process.env.basePath;
 
@@ -36,9 +37,11 @@ function Comment({
         rounded
         responsive
       />
-      <label>{username}</label> <small>{created_at}</small>
+      <label>{username}</label>{' '}
+      <small>{dateFormatUtil.yyyymmddhhmm(created_at)}</small>
       {username === 'oz25' && (
         <>
+          {' '}
           <IconButton
             bsSize="xsmall"
             bsStyle="primary"
