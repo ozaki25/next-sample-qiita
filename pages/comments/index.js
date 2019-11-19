@@ -44,6 +44,13 @@ function Comments() {
                   responsive
                 />
                 <label>{username}</label> <small>{created_at}</small>
+                {username === 'oz25' && (
+                  <Link href={`${basePath}/comments/edit?id=${id}`}>
+                    <Button bsSize="xsmall">
+                      <Glyphicon glyph="pencil" /> 編集する
+                    </Button>
+                  </Link>
+                )}
                 <pre>{body}</pre>
               </Panel.Body>
             ),
