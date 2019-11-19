@@ -14,7 +14,8 @@
     "react": "16.11.0",
     "react-bootstrap": "^0.33",
     "react-dom": "16.11.0",
-    "react-hook-form": "^3.28.1"
+    "react-hook-form": "^3.28.1",
+    "styled-components": "^4.4.1"
   },
   "devDependencies": {
     "@zeit/next-css": "^1.0.1",
