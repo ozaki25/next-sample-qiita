@@ -29,6 +29,19 @@ async function getComments() {
   }
 }
 
+async function getComment({ id }) {
+  const res = await fetch(`${baseUrl}/comments/${id}`, {
+    headers,
+  });
+  const json = await res.json();
+  console.log(json);
+  if (res.ok) {
+    return json;
+  } else {
+    throw new Error(json.message);
+  }
+}
+
 async function postComment({ comment }) {
   const res = await fetch(`${baseUrl}/items/${itemId}/comments`, {
     method: 'POST',
@@ -44,8 +57,25 @@ async function postComment({ comment }) {
   }
 }
 
+async function putComment({ id, comment }) {
+  const res = await fetch(`${baseUrl}/comments/${id}`, {
+    method: 'PATCH',
+    headers,
+    body: JSON.stringify({ body: comment }),
+  });
+  const json = await res.json();
+  console.log(json);
+  if (res.ok) {
+    return json;
+  } else {
+    throw new Error(json.message);
+  }
+}
+
 export default {
   getItems,
   getComments,
+  getComment,
   postComment,
+  putComment,
 };
