@@ -10,8 +10,8 @@ import {
   HelpBlock,
   Panel,
 } from 'react-bootstrap';
-import Layout from '../../components/Layout';
-import useQiitaComments from '../../hooks/useQiitaComments';
+import Layout from 'components/Layout';
+import useQiitaComments from 'hooks/useQiitaComments';
 
 const basePath = process.env.basePath;
 
