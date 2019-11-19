@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import Router from 'next/router';
 import { Button, Glyphicon, Image, Panel } from 'react-bootstrap';
-import Layout from '../../components/Layout';
-import useQiitaComments from '../../hooks/useQiitaComments';
+import Layout from 'components/Layout';
+import useQiitaComments from 'hooks/useQiitaComments';
 
 const basePath = process.env.basePath;
 
