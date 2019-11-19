@@ -63,7 +63,11 @@ function Edit() {
                 <HelpBlock>{errors.comment.message}</HelpBlock>
               )}
             </FormGroup>
-            <Button type="submit" className="pull-right" disabled={loading}>
+            <Button
+              type="submit"
+              className="pull-right"
+              disabled={loading || !id}
+            >
               <Glyphicon glyph="send" /> 更新
             </Button>
           </form>
