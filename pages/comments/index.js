@@ -7,10 +7,10 @@ import useQiitaComments from '../../hooks/useQiitaComments';
 const basePath = process.env.basePath;
 
 function Comments() {
-  const { data, loading, refetch } = useQiitaComments();
+  const { comments, loading, fetch } = useQiitaComments();
 
   useEffect(() => {
-    refetch();
+    fetch();
   }, []);
 
   return (
@@ -27,7 +27,7 @@ function Comments() {
         {loading ? (
           <Panel.Body>loading...</Panel.Body>
         ) : (
-          data.map(
+          comments.map(
             ({
               id,
               body,
