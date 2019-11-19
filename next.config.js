@@ -9,6 +9,15 @@ module.exports = withCSS({
     accessToken: process.env.QIITA_ACCESS_TOKEN,
     basePath: basePath,
   },
+  exportPathMap: function() {
+    return {
+      '/': { page: '/comments' },
+      '/items': { page: '/items' },
+      '/comments': { page: '/comments' },
+      '/comments/new': { page: '/comments/new' },
+      '/comments/edit': { page: '/comments/edit' },
+    };
+  },
   assetPrefix: basePath,
   webpack: function(config) {
     config.resolve.alias = {
@@ -16,7 +25,6 @@ module.exports = withCSS({
       api: path.join(__dirname, 'api'),
       components: path.join(__dirname, 'components'),
       hooks: path.join(__dirname, 'hooks'),
-      pages: path.join(__dirname, 'pages'),
     };
     config.module.rules.push({
       test: /\.(eot|woff|woff2|ttf|svg|png|jpg|gif)$/,
