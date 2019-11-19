@@ -17,15 +17,14 @@ const basePath = process.env.basePath;
 
 function Edit() {
   const router = useRouter();
-  const { id } = router.query;
-  const { loading, find, update, comment } = useQiitaComments();
   const { register, handleSubmit, watch, errors } = useForm();
+  const { loading, find, update, comment } = useQiitaComments();
 
+  const { id } = router.query;
   const validationState = errors.comment ? 'error' : null;
 
-  const onSubmit = async data => {
+  const onSubmit = async ({ comment }) => {
     try {
-      const { comment } = data;
       await update({ id, comment });
       Router.push(`${basePath}/comments`);
     } catch (e) {
@@ -64,7 +63,7 @@ function Edit() {
                 <HelpBlock>{errors.comment.message}</HelpBlock>
               )}
             </FormGroup>
-            <Button type="submit" className="pull-right">
+            <Button type="submit" className="pull-right" disabled={loading}>
               <Glyphicon glyph="send" /> 更新
             </Button>
           </form>

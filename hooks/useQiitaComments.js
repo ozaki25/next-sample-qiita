@@ -6,31 +6,31 @@ function useQiitaComments() {
   const [comment, setComment] = useState({});
   const [loading, setLoading] = useState(false);
 
-  const fetchComments = async () => {
+  const findList = async () => {
     setLoading(true);
     setComments(await qiitaApi.getComments());
     setLoading(false);
   };
 
-  const fetchComment = async ({ id }) => {
+  const find = async ({ id }) => {
     setLoading(true);
     setComment(await qiitaApi.getComment({ id }));
     setLoading(false);
   };
 
-  const addComment = async comment => {
+  const create = async ({ comment }) => {
     setLoading(true);
     await qiitaApi.postComment({ comment });
     setLoading(false);
   };
 
-  const updateComment = async ({ id, comment }) => {
+  const update = async ({ id, comment }) => {
     setLoading(true);
     await qiitaApi.patchComment({ id, comment });
     setLoading(false);
   };
 
-  const deleteComment = async ({ id }) => {
+  const destory = async ({ id }) => {
     setLoading(true);
     await qiitaApi.deleteComment({ id });
     setLoading(false);
@@ -40,11 +40,11 @@ function useQiitaComments() {
     comments,
     comment,
     loading,
-    fetch: fetchComments,
-    find: fetchComment,
-    add: addComment,
-    update: updateComment,
-    destory: deleteComment,
+    findList,
+    find,
+    create,
+    update,
+    destory,
   };
 }
 
