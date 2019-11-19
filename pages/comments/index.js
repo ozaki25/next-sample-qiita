@@ -45,7 +45,7 @@ function Comment({
             onClick={onClickEdit}
             glyph="pencil"
           >
-            編集する
+            編集
           </IconButton>{' '}
           <IconButton
             bsSize="xsmall"
@@ -53,7 +53,7 @@ function Comment({
             onClick={onClickDelete}
             glyph="trash"
           >
-            削除する
+            削除
           </IconButton>
         </>
       )}
