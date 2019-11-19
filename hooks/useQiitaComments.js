@@ -26,7 +26,13 @@ function useQiitaComments() {
 
   const updateComment = async ({ id, comment }) => {
     setLoading(true);
-    await qiitaApi.putComment({ id, comment });
+    await qiitaApi.patchComment({ id, comment });
+    setLoading(false);
+  };
+
+  const deleteComment = async ({ id }) => {
+    setLoading(true);
+    await qiitaApi.deleteComment({ id });
     setLoading(false);
   };
 
@@ -38,6 +44,7 @@ function useQiitaComments() {
     find: fetchComment,
     add: addComment,
     update: updateComment,
+    destory: deleteComment,
   };
 }
 

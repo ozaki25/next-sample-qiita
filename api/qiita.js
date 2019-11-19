@@ -57,7 +57,7 @@ async function postComment({ comment }) {
   }
 }
 
-async function putComment({ id, comment }) {
+async function patchComment({ id, comment }) {
   const res = await fetch(`${baseUrl}/comments/${id}`, {
     method: 'PATCH',
     headers,
@@ -72,10 +72,23 @@ async function putComment({ id, comment }) {
   }
 }
 
+async function deleteComment({ id }) {
+  const res = await fetch(`${baseUrl}/comments/${id}`, {
+    method: 'DELETE',
+    headers,
+  });
+  if (res.ok) {
+    return;
+  } else {
+    throw new Error(json.message);
+  }
+}
+
 export default {
   getItems,
   getComments,
   getComment,
   postComment,
-  putComment,
+  patchComment,
+  deleteComment,
 };
