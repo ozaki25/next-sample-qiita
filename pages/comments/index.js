@@ -17,12 +17,14 @@ function Comment({
   const onClickEdit = () => {
     Router.push(`${basePath}/comments/edit?id=${id}`);
   };
+
   const onClickDelete = async () => {
     if (confirm('削除します\nよろしいですか？')) {
       await destory({ id });
       refetch();
     }
   };
+
   return (
     <Panel.Body key={id}>
       <Image
@@ -50,14 +52,14 @@ function Comment({
 }
 
 function Comments() {
-  const { comments, loading, fetch, destory } = useQiitaComments();
+  const { loading, findList, destory, comments } = useQiitaComments();
 
   const onClickNew = async () => {
     Router.push(`${basePath}/comments/new`);
   };
 
   useEffect(() => {
-    fetch();
+    findList();
   }, []);
 
   return (
@@ -69,13 +71,14 @@ function Comments() {
             <Glyphicon glyph="pencil" /> コメントを投稿する
           </Button>
         </Panel.Heading>
+
         {loading ? (
           <Panel.Body>loading...</Panel.Body>
         ) : (
           comments.map(props => (
             <Comment
               key={props.id}
-              refetch={fetch}
+              refetch={findList}
               destory={destory}
               {...props}
             />

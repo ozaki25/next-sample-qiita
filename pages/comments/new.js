@@ -15,17 +15,20 @@ import useQiitaComments from '../../hooks/useQiitaComments';
 const basePath = process.env.basePath;
 
 function New() {
-  const { add } = useQiitaComments();
+  const { loading, create } = useQiitaComments();
   const { register, handleSubmit, watch, errors } = useForm();
+
   const validationState = errors.comment ? 'error' : null;
-  const onSubmit = async data => {
+
+  const onSubmit = async ({ comment }) => {
     try {
-      await add(data.comment);
+      await create({ comment });
       Router.push(`${basePath}/comments`);
     } catch (e) {
       alert(e.toString());
     }
   };
+
   return (
     <Layout>
       <Panel>
@@ -52,7 +55,7 @@ function New() {
                 <HelpBlock>{errors.comment.message}</HelpBlock>
               )}
             </FormGroup>
-            <Button type="submit" className="pull-right">
+            <Button type="submit" className="pull-right" disabled={loading}>
               <Glyphicon glyph="send" /> 投稿
             </Button>
           </form>
