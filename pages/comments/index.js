@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import Router from 'next/router';
-import { Button, Glyphicon, Image, Panel } from 'react-bootstrap';
+import { Image, Panel } from 'react-bootstrap';
 import Layout from 'components/Layout';
+import IconButton from 'components/IconButton';
 import useQiitaComments from 'hooks/useQiitaComments';
 
 const basePath = process.env.basePath;
@@ -38,12 +39,22 @@ function Comment({
       <label>{username}</label> <small>{created_at}</small>
       {username === 'oz25' && (
         <>
-          <Button bsSize="xsmall" bsStyle="primary" onClick={onClickEdit}>
-            <Glyphicon glyph="pencil" /> 編集する
-          </Button>{' '}
-          <Button bsSize="xsmall" bsStyle="danger" onClick={onClickDelete}>
-            <Glyphicon glyph="trash" /> 削除する
-          </Button>
+          <IconButton
+            bsSize="xsmall"
+            bsStyle="primary"
+            onClick={onClickEdit}
+            glyph="pencil"
+          >
+            編集する
+          </IconButton>{' '}
+          <IconButton
+            bsSize="xsmall"
+            bsStyle="danger"
+            onClick={onClickDelete}
+            glyph="trash"
+          >
+            削除する
+          </IconButton>
         </>
       )}
       <pre>{body}</pre>
@@ -67,9 +78,14 @@ function Comments() {
       <Panel>
         <Panel.Heading className="clearfix">
           コメント一覧
-          <Button bsSize="xsmall" className="pull-right" onClick={onClickNew}>
-            <Glyphicon glyph="pencil" /> コメントを投稿する
-          </Button>
+          <IconButton
+            bsSize="xsmall"
+            className="pull-right"
+            onClick={onClickNew}
+            glyph="pencil"
+          >
+            コメントを投稿する
+          </IconButton>
         </Panel.Heading>
 
         <Panel.Body>

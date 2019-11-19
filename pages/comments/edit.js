@@ -2,15 +2,14 @@ import { useEffect } from 'react';
 import Router, { useRouter } from 'next/router';
 import useForm from 'react-hook-form';
 import {
-  Button,
   ControlLabel,
   FormControl,
   FormGroup,
-  Glyphicon,
   HelpBlock,
   Panel,
 } from 'react-bootstrap';
 import Layout from 'components/Layout';
+import IconButton from 'components/IconButton';
 import useQiitaComments from 'hooks/useQiitaComments';
 
 const basePath = process.env.basePath;
@@ -63,9 +62,14 @@ function Edit() {
                 <HelpBlock>{errors.comment.message}</HelpBlock>
               )}
             </FormGroup>
-            <Button type="submit" className="pull-right" disabled={loading}>
-              <Glyphicon glyph="send" /> 更新
-            </Button>
+            <IconButton
+              type="submit"
+              className="pull-right"
+              disabled={loading || !id}
+              glyph="send"
+            >
+              更新
+            </IconButton>
           </form>
         </Panel.Body>
       </Panel>
