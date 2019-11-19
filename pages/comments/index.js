@@ -72,6 +72,11 @@ function Comments() {
           </Button>
         </Panel.Heading>
 
+        <Panel.Body>
+          <a href="https://qiita.com/ozaki25/private/7c780fc2e98952562fe4">
+            Qiitaで記事を確認する
+          </a>
+        </Panel.Body>
         {loading ? (
           <Panel.Body>loading...</Panel.Body>
         ) : (
