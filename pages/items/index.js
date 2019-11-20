@@ -12,9 +12,13 @@ function Items() {
           <Panel.Body>loading...</Panel.Body>
         ) : (
           <ListGroup>
-            {data.map(({ id, title, created_at, url }) => (
+            {data.map(({
+              id, title, created_at, url,
+            }) => (
               <ListGroupItem key={id} href={url}>
-                {title} <small>{created_at}</small>
+                {title}
+                {' '}
+                <small>{created_at}</small>
               </ListGroupItem>
             ))}
           </ListGroup>

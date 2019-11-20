@@ -1,20 +1,20 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import qiitaApi from 'api/qiita';
 
 function useQiitaComments() {
-  const [comments, setComments] = useState([]);
-  const [comment, setComment] = useState({});
+  const [values, setValues] = useState([]);
+  const [value, setValue] = useState({});
   const [loading, setLoading] = useState(false);
 
   const findList = async () => {
     setLoading(true);
-    setComments(await qiitaApi.getComments());
+    setValues(await qiitaApi.getComments());
     setLoading(false);
   };
 
   const find = async ({ id }) => {
     setLoading(true);
-    setComment(await qiitaApi.getComment({ id }));
+    setValue(await qiitaApi.getComment({ id }));
     setLoading(false);
   };
 
@@ -37,8 +37,8 @@ function useQiitaComments() {
   };
 
   return {
-    comments,
-    comment,
+    comments: values,
+    comment: value,
     loading,
     findList,
     find,

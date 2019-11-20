@@ -12,19 +12,21 @@ import Layout from 'components/Layout';
 import IconButton from 'components/IconButton';
 import useQiitaComments from 'hooks/useQiitaComments';
 
-const basePath = process.env.basePath;
+const { basePath } = process.env;
 
 function Edit() {
   const router = useRouter();
-  const { register, handleSubmit, watch, errors } = useForm();
-  const { loading, find, update, comment } = useQiitaComments();
+  const { register, handleSubmit, errors } = useForm();
+  const {
+    loading, find, update, comment,
+  } = useQiitaComments();
 
   const { id } = router.query;
   const validationState = errors.comment ? 'error' : null;
 
-  const onSubmit = async ({ comment }) => {
+  const onSubmit = async (data) => {
     try {
-      await update({ id, comment });
+      await update({ id, comment: data.comment });
       Router.push(`${basePath}/comments`);
     } catch (e) {
       alert(e.toString());

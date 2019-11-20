@@ -6,7 +6,7 @@ import IconButton from 'components/IconButton';
 import useQiitaComments from 'hooks/useQiitaComments';
 import dateFormatUtil from 'utils/dateFormat';
 
-const basePath = process.env.basePath;
+const { basePath } = process.env;
 
 function Comment({
   id,
@@ -21,7 +21,7 @@ function Comment({
   };
 
   const onClickDelete = async () => {
-    if (confirm('削除します\nよろしいですか？')) {
+    if (window.confirm('削除します\nよろしいですか？')) {
       await destory({ id });
       refetch();
     }
@@ -37,7 +37,8 @@ function Comment({
         rounded
         responsive
       />
-      <label>{username}</label>{' '}
+      <label htmlFor="user">{username}</label>
+      {' '}
       <small>{dateFormatUtil.yyyymmddhhmm(created_at)}</small>
       {username === 'oz25' && (
         <>
@@ -49,7 +50,8 @@ function Comment({
             glyph="pencil"
           >
             編集
-          </IconButton>{' '}
+          </IconButton>
+          {' '}
           <IconButton
             bsSize="xsmall"
             bsStyle="danger"
@@ -66,7 +68,9 @@ function Comment({
 }
 
 function Comments() {
-  const { loading, findList, destory, comments } = useQiitaComments();
+  const {
+    loading, findList, destory, comments,
+  } = useQiitaComments();
 
   const onClickNew = async () => {
     Router.push(`${basePath}/comments/new`);
@@ -99,7 +103,7 @@ function Comments() {
         {loading ? (
           <Panel.Body>loading...</Panel.Body>
         ) : (
-          comments.map(props => (
+          comments.map((props) => (
             <Comment
               key={props.id}
               refetch={findList}

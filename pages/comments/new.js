@@ -11,11 +11,11 @@ import Layout from 'components/Layout';
 import IconButton from 'components/IconButton';
 import useQiitaComments from 'hooks/useQiitaComments';
 
-const basePath = process.env.basePath;
+const { basePath } = process.env;
 
 function New() {
   const { loading, create } = useQiitaComments();
-  const { register, handleSubmit, watch, errors } = useForm();
+  const { register, handleSubmit, errors } = useForm();
 
   const validationState = errors.comment ? 'error' : null;
 

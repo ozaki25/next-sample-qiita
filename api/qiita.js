@@ -1,5 +1,5 @@
 const baseUrl = 'https://qiita.com/api/v2';
-const accessToken = process.env.accessToken;
+const { accessToken } = process.env;
 const headers = {
   Authorization: `Bearer ${accessToken}`,
   'Content-Type': 'application/json',
@@ -11,22 +11,16 @@ async function getItems() {
   const res = await fetch(`${baseUrl}/users/${username}/items`, { headers });
   const json = await res.json();
   console.log(json);
-  if (res.ok) {
-    return json;
-  } else {
-    throw new Error(json.message);
-  }
+  if (!res.ok) throw new Error(json.message);
+  return json;
 }
 
 async function getComments() {
   const res = await fetch(`${baseUrl}/items/${itemId}/comments`, { headers });
   const json = await res.json();
   console.log(json);
-  if (res.ok) {
-    return json;
-  } else {
-    throw new Error(json.message);
-  }
+  if (!res.ok) throw new Error(json.message);
+  return json;
 }
 
 async function getComment({ id }) {
@@ -35,11 +29,8 @@ async function getComment({ id }) {
   });
   const json = await res.json();
   console.log(json);
-  if (res.ok) {
-    return json;
-  } else {
-    throw new Error(json.message);
-  }
+  if (!res.ok) throw new Error(json.message);
+  return json;
 }
 
 async function postComment({ comment }) {
@@ -50,11 +41,8 @@ async function postComment({ comment }) {
   });
   const json = await res.json();
   console.log(json);
-  if (res.ok) {
-    return json;
-  } else {
-    throw new Error(json.message);
-  }
+  if (!res.ok) throw new Error(json.message);
+  return json;
 }
 
 async function patchComment({ id, comment }) {
@@ -65,11 +53,8 @@ async function patchComment({ id, comment }) {
   });
   const json = await res.json();
   console.log(json);
-  if (res.ok) {
-    return json;
-  } else {
-    throw new Error(json.message);
-  }
+  if (!res.ok) throw new Error(json.message);
+  return json;
 }
 
 async function deleteComment({ id }) {
@@ -77,11 +62,8 @@ async function deleteComment({ id }) {
     method: 'DELETE',
     headers,
   });
-  if (res.ok) {
-    return;
-  } else {
-    throw new Error(json.message);
-  }
+  const json = await res.json();
+  if (!res.ok) throw new Error(json.message);
 }
 
 export default {
