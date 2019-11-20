@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "export": "next export"
+    "export": "next export",
+    "lint": "eslint \"pages/**/*.js\" \"api/**/*.js\" \"components/**/*.js\" \"hooks/**/*.js\" \"utils/**/*.js\""
   },
   "dependencies": {
     "bootstrap": "^3.4.1",
