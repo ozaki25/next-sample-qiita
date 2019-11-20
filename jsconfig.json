@@ -6,7 +6,7 @@
       "api/*": ["api/*"],
       "components/*": ["components/*"],
       "hooks/*": ["hooks/*"],
-      "utils/*": ["aputilsi/*"]
+      "utils/*": ["utils/*"]
     }
   },
   "exclude": ["node_modules", ".next", "out"]
