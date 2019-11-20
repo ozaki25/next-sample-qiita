@@ -1,7 +1,7 @@
 import { Navbar } from 'react-bootstrap';
 import styled from 'styled-components';
 
-const basePath = process.env.basePath;
+const { basePath } = process.env;
 
 const StyledNavbar = styled(Navbar)`
   background-color: #d9edf7;

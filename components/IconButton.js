@@ -19,7 +19,9 @@ function IconButton({
       bsStyle={bsStyle}
       bsSize={bsSize}
     >
-      {glyph && <Glyphicon glyph={glyph} />} {children}
+      {glyph && <Glyphicon glyph={glyph} />}
+      {' '}
+      {children}
     </Button>
   );
 }
