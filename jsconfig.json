@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "baseUrl": ".",
+    "paths": {
+      "api/*": ["api/*"],
+      "components/*": ["components/*"],
+      "hooks/*": ["hooks/*"],
+      "utils/*": ["aputilsi/*"]
+    }
+  },
+  "exclude": ["node_modules", ".next", "out"]
+}
