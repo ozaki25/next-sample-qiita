@@ -5,8 +5,7 @@ import Layout from 'src/components/Layout';
 import IconButton from 'src/components/IconButton';
 import useQiitaComments from 'src/hooks/useQiitaComments';
 import dateFormatUtil from 'src/utils/dateFormat';
-
-const { basePath } = process.env;
+import env from 'src/constants/env';
 
 function Comment({
   id,
@@ -17,7 +16,7 @@ function Comment({
   destory,
 }) {
   const onClickEdit = () => {
-    Router.push(`${basePath}/comments/edit?id=${id}`);
+    Router.push(`${env.basePath}/comments/edit?id=${id}`);
   };
 
   const onClickDelete = async () => {
@@ -73,7 +72,7 @@ function Comments() {
   } = useQiitaComments();
 
   const onClickNew = async () => {
-    Router.push(`${basePath}/comments/new`);
+    Router.push(`${env.basePath}/comments/new`);
   };
 
   useEffect(() => {

@@ -6,7 +6,7 @@ const basePath = process.env.GITHUB_PAGES ? '/next-sample-qiita' : '';
 
 module.exports = withCSS({
   distDir: '../.next',
-  env: {
+  publicRuntimeConfig: {
     accessToken: process.env.QIITA_ACCESS_TOKEN,
     basePath,
   },

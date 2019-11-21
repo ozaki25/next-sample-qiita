@@ -1,7 +1,8 @@
+import env from 'src/constants/env';
+
 const baseUrl = 'https://qiita.com/api/v2';
-const { accessToken } = process.env;
 const headers = {
-  Authorization: `Bearer ${accessToken}`,
+  Authorization: `Bearer ${env.accessToken}`,
   'Content-Type': 'application/json',
 };
 const username = 'ozaki25';

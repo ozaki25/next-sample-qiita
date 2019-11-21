@@ -11,8 +11,7 @@ import {
 import Layout from 'src/components/Layout';
 import IconButton from 'src/components/IconButton';
 import useQiitaComments from 'src/hooks/useQiitaComments';
-
-const { basePath } = process.env;
+import env from 'src/constants/env';
 
 function Edit() {
   const router = useRouter();
@@ -27,7 +26,7 @@ function Edit() {
   const onSubmit = async (data) => {
     try {
       await update({ id, comment: data.comment });
-      Router.push(`${basePath}/comments`);
+      Router.push(`${env.basePath}/comments`);
     } catch (e) {
       alert(e.toString());
     }

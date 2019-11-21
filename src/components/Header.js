@@ -1,7 +1,6 @@
 import { Navbar } from 'react-bootstrap';
 import styled from 'styled-components';
-
-const { basePath } = process.env;
+import env from 'src/constants/env';
 
 const StyledNavbar = styled(Navbar)`
   background-color: #d9edf7;
@@ -13,7 +12,7 @@ function Header() {
     <StyledNavbar fluid>
       <StyledNavbar.Header>
         <StyledNavbar.Brand>
-          <a href={`${basePath}/`}>Qiita Sample</a>
+          <a href={`${env.basePath}/`}>Qiita Sample</a>
         </StyledNavbar.Brand>
       </StyledNavbar.Header>
     </StyledNavbar>

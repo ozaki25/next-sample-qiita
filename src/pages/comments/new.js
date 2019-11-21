@@ -10,8 +10,7 @@ import {
 import Layout from 'src/components/Layout';
 import IconButton from 'src/components/IconButton';
 import useQiitaComments from 'src/hooks/useQiitaComments';
-
-const { basePath } = process.env;
+import env from 'src/constants/env';
 
 function New() {
   const { loading, create } = useQiitaComments();
@@ -22,7 +21,7 @@ function New() {
   const onSubmit = async ({ comment }) => {
     try {
       await create({ comment });
-      Router.push(`${basePath}/comments`);
+      Router.push(`${env.basePath}/comments`);
     } catch (e) {
       alert(e.toString());
     }
