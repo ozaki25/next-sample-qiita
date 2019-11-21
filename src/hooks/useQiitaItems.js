@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import qiitaApi from 'api/qiita';
+import qiitaApi from 'src/api/qiita';
 
 function useQiitaItems() {
   const [data, setData] = useState([]);

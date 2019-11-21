@@ -8,9 +8,9 @@ import {
   HelpBlock,
   Panel,
 } from 'react-bootstrap';
-import Layout from 'components/Layout';
-import IconButton from 'components/IconButton';
-import useQiitaComments from 'hooks/useQiitaComments';
+import Layout from 'src/components/Layout';
+import IconButton from 'src/components/IconButton';
+import useQiitaComments from 'src/hooks/useQiitaComments';
 
 const { basePath } = process.env;
 

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import qiitaApi from 'api/qiita';
+import qiitaApi from 'src/api/qiita';
 
 function useQiitaComments() {
   const [values, setValues] = useState([]);

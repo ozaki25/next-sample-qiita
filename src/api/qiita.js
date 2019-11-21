@@ -62,8 +62,10 @@ async function deleteComment({ id }) {
     method: 'DELETE',
     headers,
   });
-  const json = await res.json();
-  if (!res.ok) throw new Error(json.message);
+  if (!res.ok) {
+    const json = await res.json();
+    throw new Error(json.message);
+  }
 }
 
 export default {

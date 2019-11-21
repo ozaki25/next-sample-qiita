@@ -5,11 +5,12 @@ const withCSS = require('@zeit/next-css');
 const basePath = process.env.GITHUB_PAGES ? '/next-sample-qiita' : '';
 
 module.exports = withCSS({
+  distDir: '../.next',
   env: {
     accessToken: process.env.QIITA_ACCESS_TOKEN,
-    basePath: basePath,
+    basePath,
   },
-  exportPathMap: function() {
+  exportPathMap() {
     return {
       '/': { page: '/comments' },
       '/items': { page: '/items' },
@@ -19,13 +20,10 @@ module.exports = withCSS({
     };
   },
   assetPrefix: basePath,
-  webpack: function(config) {
+  webpack(config) {
     config.resolve.alias = {
       ...config.resolve.alias,
-      api: path.join(__dirname, 'api'),
-      components: path.join(__dirname, 'components'),
-      hooks: path.join(__dirname, 'hooks'),
-      utils: path.join(__dirname, 'utils'),
+      src: path.join(__dirname, 'src'),
     };
     config.module.rules.push({
       test: /\.(eot|woff|woff2|ttf|svg|png|jpg|gif)$/,

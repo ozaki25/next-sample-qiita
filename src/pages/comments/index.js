@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import Router from 'next/router';
 import { Image, Panel } from 'react-bootstrap';
-import Layout from 'components/Layout';
-import IconButton from 'components/IconButton';
-import useQiitaComments from 'hooks/useQiitaComments';
-import dateFormatUtil from 'utils/dateFormat';
+import Layout from 'src/components/Layout';
+import IconButton from 'src/components/IconButton';
+import useQiitaComments from 'src/hooks/useQiitaComments';
+import dateFormatUtil from 'src/utils/dateFormat';
 
 const { basePath } = process.env;
 
