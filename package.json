@@ -7,7 +7,7 @@
     "build": "next build ./src",
     "start": "next start ./src",
     "export": "next export ./src",
-    "lint": "eslint \"src/**/*.js\""
+    "lint": "eslint --quiet \"src/**/*.js\""
   },
   "dependencies": {
     "bootstrap": "^3.4.1",
