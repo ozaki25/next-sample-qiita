@@ -6,7 +6,7 @@
     "dev": "next dev ./src",
     "build": "next build ./src",
     "start": "next start ./src",
-    "export": "next export ./src -o ./out",
+    "export": "next build ./src && next export ./src -o ./out",
     "lint": "eslint --quiet \"src/**/*.js\""
   },
   "dependencies": {
