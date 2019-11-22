@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "export": "next export",
-    "lint": "eslint \"pages/**/*.js\" \"api/**/*.js\" \"components/**/*.js\" \"hooks/**/*.js\" \"utils/**/*.js\""
+    "dev": "next dev ./src",
+    "build": "next build ./src",
+    "start": "next start ./src",
+    "export": "next build ./src && next export ./src -o ./out",
+    "lint": "eslint --quiet \"src/**/*.js\""
   },
   "dependencies": {
     "bootstrap": "^3.4.1",

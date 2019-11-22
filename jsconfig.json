@@ -3,10 +3,7 @@
     "module": "esnext",
     "baseUrl": ".",
     "paths": {
-      "api/*": ["api/*"],
-      "components/*": ["components/*"],
-      "hooks/*": ["hooks/*"],
-      "utils/*": ["utils/*"]
+      "src/*": ["src/*"]
     }
   },
   "exclude": ["node_modules", ".next", "out"]

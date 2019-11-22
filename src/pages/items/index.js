@@ -1,6 +1,6 @@
 import { ListGroup, ListGroupItem, Panel } from 'react-bootstrap';
-import Layout from 'components/Layout';
-import useQiitaItems from 'hooks/useQiitaItems';
+import Layout from 'src/components/Layout';
+import useQiitaItems from 'src/hooks/useQiitaItems';
 
 function Items() {
   const { data, loading } = useQiitaItems();
