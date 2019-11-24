@@ -1,10 +1,10 @@
-import { useContext, useEffect } from 'react';
+import { useEffect } from 'react';
 import Router from 'next/router';
 import { Image, Panel } from 'react-bootstrap';
 import Layout from 'src/components/Layout';
 import IconButton from 'src/components/IconButton';
-import { AuthUserContext } from 'src/contexts/authUser';
 import useQiitaComments from 'src/hooks/useQiitaComments';
+import useAuthUser from 'src/hooks/useAuthUser';
 import dateFormatUtil from 'src/utils/dateFormat';
 import env from 'src/constants/env';
 
@@ -68,7 +68,7 @@ function Comment({
 }
 
 function Comments() {
-  const { authUser, setAuthUser } = useContext(AuthUserContext);
+  const { authUser } = useAuthUser();
   const {
     loading, findList, destory, comments,
   } = useQiitaComments();
@@ -78,17 +78,12 @@ function Comments() {
   };
 
   useEffect(() => {
-    if (!authUser) setAuthUser({ name: 'ozaki25' });
-  }, []);
-
-  useEffect(() => {
     findList();
   }, []);
 
-  console.log({ authUser });
-
   return (
     <Layout>
+      <h1>{authUser || 'no login'}</h1>
       <Panel>
         <Panel.Heading className="clearfix">
           コメント一覧
