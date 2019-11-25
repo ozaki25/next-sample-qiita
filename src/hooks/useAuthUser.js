@@ -1,9 +1,8 @@
-import { useContext, useEffect, useState } from 'react';
-import { AuthUserContext } from 'src/contexts/authUser';
+import { useEffect, useState } from 'react';
 
 function useAuthUser() {
   const [loading, setLoading] = useState(false);
-  const { authUser, setAuthUser } = useContext(AuthUserContext);
+  const [authUser, setAuthUser] = useState(null);
 
   const fetchAuthUser = async () => {
     if (!authUser) {

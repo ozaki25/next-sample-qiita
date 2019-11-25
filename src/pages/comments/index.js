@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import Router from 'next/router';
 import { Image, Panel } from 'react-bootstrap';
+
 import Layout from 'src/components/Layout';
 import IconButton from 'src/components/IconButton';
 import useQiitaComments from 'src/hooks/useQiitaComments';
-import useAuthUser from 'src/hooks/useAuthUser';
 import dateFormatUtil from 'src/utils/dateFormat';
 import env from 'src/constants/env';
 
@@ -68,7 +68,6 @@ function Comment({
 }
 
 function Comments() {
-  const { authUser } = useAuthUser();
   const {
     loading, findList, destory, comments,
   } = useQiitaComments();
@@ -83,7 +82,6 @@ function Comments() {
 
   return (
     <Layout>
-      <h1>{authUser || 'no login'}</h1>
       <Panel>
         <Panel.Heading className="clearfix">
           コメント一覧
