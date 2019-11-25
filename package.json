@@ -8,7 +8,7 @@
     "start": "next start ./src",
     "export": "next build ./src && next export ./src -o ./out",
     "lint": "eslint --quiet \"src/**/*.js\"",
-    "format": "npx prettier-eslint --write \"src/**/*.js\""
+    "format": "prettier-eslint --write \"src/**/*.js\""
   },
   "dependencies": {
     "bootstrap": "^3.4.1",
