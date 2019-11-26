@@ -71,7 +71,6 @@ function Comments() {
   const {
     loading, findList, destory, comments,
   } = useQiitaComments();
-
   const onClickNew = async () => {
     Router.push(`${env.basePath}/comments/new`);
   };

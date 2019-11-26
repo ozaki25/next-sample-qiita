@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import qiitaApi from 'src/api/qiita';
 
 function useAuthUser() {
   const [loading, setLoading] = useState(false);
@@ -7,7 +8,7 @@ function useAuthUser() {
   const fetchAuthUser = async () => {
     if (!authUser) {
       setLoading(true);
-      await setAuthUser({ name: 'ozaki25' });
+      setAuthUser(await qiitaApi.getUser({ userId: 'oz25' }));
       setLoading(false);
     }
   };
