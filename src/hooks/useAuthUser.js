@@ -1,23 +1,9 @@
-import { useEffect, useState } from 'react';
-import qiitaApi from 'src/api/qiita';
+import { useContext } from 'react';
+import { AuthUserContext } from 'src/contexts/AuthUserContext';
 
 function useAuthUser() {
-  const [loading, setLoading] = useState(false);
-  const [authUser, setAuthUser] = useState(null);
-
-  const fetchAuthUser = async () => {
-    if (!authUser) {
-      setLoading(true);
-      setAuthUser(await qiitaApi.getUser({ userId: 'oz25' }));
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchAuthUser();
-  }, []);
-
-  return { authUser, loading };
+  const { authUser } = useContext(AuthUserContext);
+  return { authUser };
 }
 
 export default useAuthUser;

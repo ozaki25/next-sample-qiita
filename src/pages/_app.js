@@ -1,5 +1,5 @@
 import App from 'next/app';
-import AuthUserProvider from 'src/contexts/authUser';
+import AuthUserProvider from 'src/contexts/AuthUserContext';
 
 class MyApp extends App {
   render() {

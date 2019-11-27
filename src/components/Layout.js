@@ -1,11 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import { useContext } from 'react';
 import { Grid } from 'react-bootstrap';
 import Header from 'src/components/Header';
-import { AuthUserContext } from 'src/contexts/authUser';
+import useAuthUser from 'src/hooks/useAuthUser';
 
 function Layout({ children }) {
-  const { authUser } = useContext(AuthUserContext);
+  const { authUser } = useAuthUser();
   return (
     <>
       <Header username={authUser && authUser.id} />
