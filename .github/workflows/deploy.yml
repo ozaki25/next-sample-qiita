@@ -17,7 +17,7 @@ jobs:
           yarn install
       - name: build
         run: |
-          yarn build
+          yarn export
           touch out/.nojekyll
         env:
           GITHUB_PAGES: true
