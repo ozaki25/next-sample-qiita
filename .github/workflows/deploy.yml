@@ -17,14 +17,11 @@ jobs:
           yarn install
       - name: build
         run: |
-          yarn build
+          yarn export
+          touch out/.nojekyll
         env:
           GITHUB_PAGES: true
           QIITA_ACCESS_TOKEN: ${{ secrets.QIITA_ACCESS_TOKEN }}
-      - name: export
-        run: |
-          yarn export
-          touch out/.nojekyll
       - name: deploy
         uses: peaceiris/actions-gh-pages@v2.3.1
         env:
