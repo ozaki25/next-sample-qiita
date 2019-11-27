@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import Router from 'next/router';
 import { Image, Panel } from 'react-bootstrap';
+
 import Layout from 'src/components/Layout';
 import IconButton from 'src/components/IconButton';
 import useQiitaComments from 'src/hooks/useQiitaComments';
@@ -70,7 +71,6 @@ function Comments() {
   const {
     loading, findList, destory, comments,
   } = useQiitaComments();
-
   const onClickNew = async () => {
     Router.push(`${env.basePath}/comments/new`);
   };

@@ -8,6 +8,14 @@ const headers = {
 const username = 'ozaki25';
 const itemId = '7c780fc2e98952562fe4';
 
+async function getUser({ userId }) {
+  const res = await fetch(`${baseUrl}/users/${userId}`, { headers });
+  const json = await res.json();
+  console.log(json);
+  if (!res.ok) throw new Error(json.message);
+  return json;
+}
+
 async function getItems() {
   const res = await fetch(`${baseUrl}/users/${username}/items`, { headers });
   const json = await res.json();
@@ -70,6 +78,7 @@ async function deleteComment({ id }) {
 }
 
 export default {
+  getUser,
   getItems,
   getComments,
   getComment,
