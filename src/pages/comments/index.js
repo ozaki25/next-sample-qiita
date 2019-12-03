@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import Router from 'next/router';
-import { Image, Panel } from 'react-bootstrap';
+import {
+  Image, Panel, OverlayTrigger, Tooltip,
+} from 'react-bootstrap';
 
 import Layout from 'src/components/Layout';
 import IconButton from 'src/components/IconButton';
@@ -39,7 +41,12 @@ function Comment({
       />
       <label htmlFor="user">{username}</label>
       {' '}
-      <small>{dateFormatUtil.yyyymmddhhmm(created_at)}</small>
+      <OverlayTrigger
+        placement="top"
+        overlay={<Tooltip>{dateFormatUtil.yyyymmddhhmm(created_at)}</Tooltip>}
+      >
+        <small>{dateFormatUtil.yyyymmdd(created_at)}</small>
+      </OverlayTrigger>
       {username === 'oz25' && (
         <>
           {' '}
