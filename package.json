@@ -8,7 +8,8 @@
     "start": "next start ./src",
     "export": "next build ./src && next export ./src -o ./out",
     "lint": "eslint --quiet \"src/**/*.js\"",
-    "format": "prettier-eslint --write \"src/**/*.js\""
+    "format": "prettier-eslint --write \"src/**/*.js\"",
+    "test": "jest"
   },
   "dependencies": {
     "bootstrap": "^3.4.1",
@@ -27,9 +28,11 @@
     "eslint": "^6.6.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^23.1.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.16.0",
     "eslint-plugin-react-hooks": "^1.7.0",
+    "jest": "^24.9.0",
     "prettier-eslint": "^9.0.1",
     "prettier-eslint-cli": "^5.0.0",
     "url-loader": "^2.2.0"

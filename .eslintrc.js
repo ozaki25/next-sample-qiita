@@ -4,7 +4,7 @@ module.exports = {
     es2020: true,
     node: true,
   },
-  extends: ['airbnb'],
+  extends: ['airbnb', 'plugin:jest/recommended'],
   globals: {},
   parserOptions: {
     ecmaFeatures: {
@@ -13,7 +13,7 @@ module.exports = {
     ecmaVersion: 2020,
     sourceType: 'module',
   },
-  plugins: ['react'],
+  plugins: ['react', 'jest'],
   rules: {
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
