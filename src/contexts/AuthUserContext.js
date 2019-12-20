@@ -1,7 +1,14 @@
-import { createContext, useEffect, useState } from 'react';
+import {
+  createContext, useContext, useEffect, useState,
+} from 'react';
 import qiitaApi from 'src/api/qiita';
 
 export const AuthUserContext = createContext(null);
+
+export function useAuthUser() {
+  const { authUser } = useContext(AuthUserContext);
+  return { authUser };
+}
 
 function AuthUserProvider(props) {
   const [authUser, setAuthUser] = useState(null);
