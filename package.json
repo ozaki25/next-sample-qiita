@@ -14,7 +14,7 @@
   "dependencies": {
     "bootstrap": "^3.4.1",
     "dayjs": "^1.8.17",
-    "next": "9.1.2",
+    "next": "9.3.2",
     "react": "16.11.0",
     "react-bootstrap": "^0.33",
     "react-dom": "16.11.0",
